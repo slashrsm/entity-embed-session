@@ -31,7 +31,7 @@
       <div class="slides">
 
 	<section id="front">
-	  <img src="img/drupalcampes.png" style="border: none; max-height: 300px" />
+	  <img src="img/drupalddmilan.png" style="border: none; max-height: 350px; background: none;" />
 	  <h2>The next generation embedding with Entity embed</h2>
 	  <p>
 	    <a href="https://www.drupal.org/u/slashrsm">Janez Urevc</a> / <a href="http://twitter.com/slashrsm">@slashrsm</a> / <a href="http://janezurevc.name">http://janezurevc.name</a>
@@ -43,12 +43,12 @@
 
 	<section>
 	  <section id="about">
-	    <h2>Janez Urevc (@slashrsm)</h2>
+	    <h2>Janez Urevc (<a href="https://drupal.org/u/slashrsm">@slashrsm</a>)</h2>
 	    <ul>
-	      <li>Active member of Drupal community since 2009</li>
+	      <li>senior engineer and team lead at MD Systems</li>
+	      <li class="fragment">Active member of Drupal community since 2009</li>
 	      <li class="fragment">Lead of the D8 media initiative</li>
 	      <li class="fragment">ex Examiner.com</li>
-	      <li class="fragment">future (current) MD Systems</li>
 	    </ul>
 	  </section>
 
@@ -56,9 +56,16 @@
 	    <h2>Biggest company contributor</h2>
 	    <img src="img/credits.png" class="stretch" />
 	    <p>Source: <a href="https://drupal.org/drupal-services">drupal.org/drupal-services</a></p>
-	    <aside class="notes">top 5 D8 ind. contrib., D8 expert, D8 media expert (NP8)</aside>
+      <p><a href="http://www.md-systems.ch">http://www.md-systems.ch/en</a></p>
+	    <aside class="notes">
+        <ul>
+          <li>top 5 D8 ind. contrib.</li>
+          <li>D8 expert</li>
+          <li>D8 media expert (NP8)</li>
+        </ul>
+      </aside>
 	  </section>
-	  
+
 	  <section>
 	    <img src="img/remote.jpg" class="stretch" />
 	    <p><a href="https://37signals.com/remote/">Remote: Office not required</a></p>
@@ -82,7 +89,7 @@
 
 	  <section>
 	    <img src="img/motorbike.jpg" class="stretch" />
-	  </section>
+    </section>
 
 	  <section>
 	    <img src="img/animal_farm.jpg" class="stretch" />
@@ -120,7 +127,7 @@
 	    <h3>CKEditor + Basic image upload</h3>
 	    <video controls width="75%">
 	      <source src="screencasts/core_embed.webm" type="video/webm">
-		Your web browser doesn't support playing this WebM screencast.
+		    Your web browser doesn't support playing this WebM screencast.
 	    </video>
 	  </section>
 
@@ -145,18 +152,28 @@
 	      <li>Little control over display</li>
 	    </ul>
 	  </section>
-	  
+
 	  <section>
 	    <h2>Anyone ever seen something like this?</h2>
 	    <img src="img/embedded-article.png" class="stretch" />
-	    <p>Source: <a href="http://www.theguardian.com">www.theguardian.com</a></p>	    
+	    <p>Source: <a href="http://www.theguardian.com">www.theguardian.com</a></p>
+	    <aside class="notes">
+        <ul>
+          <li>In Drupal => node rendered as a teaser (or "inline teaser"?)</li>
+        </ul>
+      </aside>
 	  </section>
 
 	  <section>
 	    <h2>Or this? Anyone?</h2>
 	    <img src="img/embedded-video.png" class="stretch" />
-	    <p>Source: <a href="http://www.nytimes.com">www.nytimes.com</a></p>	    
+	    <p>Source: <a href="http://www.nytimes.com">www.nytimes.com</a></p>
 	  </section>
+    <aside class="notes">
+      <ul>
+        <li>In Drupal => media entity rendered as a teaser</li>
+      </ul>
+    </aside>
 	</section>
 
 	<section>
@@ -174,7 +191,7 @@
 	  <section>
 	    <h2>Entity embed (cont'd)</h2>
 	    <ul>
-	      <li class="fragment">Self-hosted video (File entity)</li>
+	      <li class="fragment">Self-hosted video (Media or File entity)</li>
 	      <li class="fragment">Related article (Node)</li>
 	      <li class="fragment">List of related articles (Taxonomy)</li>
 	      <li class="fragment">Related product (Commerce product)</li>
@@ -192,40 +209,54 @@
 	      <li class="fragment">WYSIWYG integration</li>
 	      <li class="fragment">storage</li>
 	      <li class="fragment">display</li>
-	    </ul>		
+	    </ul>
 	  </section>
 
 	  <section>
 	    <h2>Architecture: WYSIWYG</h2>
-	    <img src="img/wysiwyg.png" class="stretch" />	
+	    <img src="img/wysiwyg.png" class="stretch" />
+      <aside class="notes">
+        <ul>
+          <li>"Embed button" is a config entity</li>
+          <li>Not coupled to entities - as we will see later.</li>
+          <li>Works through plugins</li>
+        </ul>
+      </aside>
 	  </section>
 
 	  <section>
 	    <h2>Architecture: WYSIWYG</h2>
-	    <p>Works through <a href="https://drupal.org/project/embed">Embed module</a></p>	
+	    <p>Works through <a href="https://drupal.org/project/embed">Embed module</a></p>
+      <aside class="notes">
+        <ul>
+          <li>Not coupled to entities - as we will see later.</li>
+          <li>Works through plugins</li>
+          <li>You can generally embed whatever you'd like</li>
+        </ul>
+      </aside>
 	  </section>
 
 	  <section>
 	    <h2>Architecture: storage</h2>
-	    <p>Special HTML tag</p>
+	    <p>Custom HTML tag</p>
 	    <img src="img/tag.png" class="stretch" />
+      <aside class="notes">
+        <ul>
+          <li>Custom tag with data-attributes</li>
+        </ul>
+      </aside>
 	  </section>
 
 	  <section>
 	    <h2>Architecture: display</h2>
 	    <p>Text filters</p>
 	    <img src="img/filters.png" class="stretch" />
+      <aside class="notes">
+        <ul>
+          <li>Converted to rendered representation of the entity on view - text filter</li>
+        </ul>
+      </aside>
 	  </section>
-	</section>
-
-	<section>
-	  <h2>URL Embed</h2>
-	  <h4>Status: In Progress</h4>
-	  <p><a href="https://www.drupal.org/project/url_embed">drupal.org/project/url_embed</a></p>
-	  <p>Allows embedding of URLs using the WYSIWYG or link fields.</p>
-	  <pre><code><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-embed-display="html"></a></code></pre>
-	  <p>Using the Embed library from <a href="https://github.com/oscarotero/Embed">github.com/oscarotero/Embed</a><br/>supports much more than just oEmbed</p>
-	  <p>Transform pasted embeddable URLs and embed codes in WYSIWYG to normalized HTML tag.</p>
 	</section>
 
 	<section>
@@ -236,18 +267,37 @@
 
 	  <section>
 	    <h2>Display: rendered entity</h2>
-	    <img src="img/rendered.png" class="stretch" />	
+	    <img src="img/rendered.png" class="stretch" />
 	  </section>
 
 	  <section>
 	    <h2>Display: field formatters</h2>
-	    <img src="img/formatter.png" class="stretch" />	
+	    <img src="img/formatter.png" class="stretch" />
+      <aside class="notes">
+        <ul>
+          <li>Any formatter that you enable/code should work with EE</li>
+        </ul>
+      </aside>
 	  </section>
 	</section>
-	
+
 	<section id="demo-1">
 	  <h2>DEMO</h2>
-	</section>	
+    <aside class="notes">
+      <ol>
+        <li>Fresh install</li>
+        <li>Enable EE</li>
+        <li>Add icon to the button</li>
+        <li>Configure filter</li>
+        <li>Create 2 child nodes: one Page and one Article</li>
+        <li>Create host node: embed page (use float)</li>
+        <li>show how it looks embedded</li>
+        <li>Try to quick edit it</li>
+        <li>Create host node: embed article</li>
+        <li>show how it looks embedded, show comments</li>
+      </ol>
+    </aside>
+	</section>
 
 	<section>
 	  <section id="entity-browser">
@@ -271,11 +321,21 @@
 
 	<section id="demo-2">
 	  <h2>DEMO</h2>
+    <aside class="notes">
+      <ol>
+        <li>Enable file_browser</li>
+        <li>Show button config</li>
+        <li>add button to the WYSIWYG editor</li>
+        <li>embed by uploading</li>
+        <li>float caption</li>
+        <li>embed by selecting</li>
+      </ol>
+    </aside>
 	</section>
-	
+
 	<section id="roadmap">
 	  <h2>Roadmap</h2>
-	  <p>beta release in a ~1 month (2 beta blockers - one is more complex)</p>
+	  <p>beta release hopefully this week (1 beta blocker - almost there)</p>
 	  <p>You can already use it!</p>
 	</section>
 
@@ -285,6 +345,44 @@
 	  <p><a href="https://github.com/drupal-media/entity_embed">github.com/drupal-media/entity_embed</a></p>
 	  <p>#drupal-media @ Freenode.net</p>
 	</section>
+
+  <section>
+    <section id="there-is-more">
+      <h2>There is more!</h2>
+      <aside class="notes">
+        <ul>
+          <li>Remember Embed module?</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="url-embed">
+	    <h2>URL Embed</h2>
+	    <h4>Status: Basic functionality</h4>
+	    <p><a href="https://www.drupal.org/project/url_embed">drupal.org/project/url_embed</a></p>
+	    <p>Allows embedding of URLs using the WYSIWYG or link fields.</p>
+	    <pre style="width: 100%; text-align: center;"><code><a href="https://www.youtube.com/watch?v=DnpO_RTSNmQ" data-embed-display="html"></a></code></pre>
+      <aside class="notes">
+        <ul>
+          <li>Example of another embed plugin.</li>
+        </ul>
+      </aside>
+    </section>
+
+	  <section id="demo-3">
+	    <h2>Another DEMO!</h2>
+      <aside class="notes">
+        <ol>
+          <li>Enable url_embed</li>
+          <li>Show button config</li>
+          <li>Add button to the WYSIWYG editor</li>
+          <li>Embed a YT video (https://www.youtube.com/watch?v=DnpO_RTSNmQ)</li>
+          <li>float caption</li>
+          <li>embed by selecting</li>
+        </ol>
+      </aside>
+	  </section>
+  </section>
 
 	<section id="last">
 	  <h2>Thank you! Questions?</h2>
