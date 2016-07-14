@@ -2,7 +2,7 @@
 
 Slide deck about [Drupal](https://drupal.org) 8 [Entity embed module](https://drupal.org/project/entity_embed).
 
-Anyone is encouraged to use and [improve it](https://github.com/slashrsm/entity-embed-session/comparehttps://github.com/slashrsm/entity-embed-session/compare).
+Anyone is encouraged to use and [improve it](https://github.com/slashrsm/entity-embed-session/compare).
 
 ## Author
 
